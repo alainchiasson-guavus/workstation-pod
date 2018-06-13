@@ -3,13 +3,14 @@ pipeline {
     stages {
         stage('Example') {
             steps {
-                echo 'Hello World'
+                echo 'Building Docker image'
+                ./build
             }
         }
     }
     post { 
         always { 
-            echo 'I will always say Hello again!'
+            echo 'Now What'
         }
     }
 }
