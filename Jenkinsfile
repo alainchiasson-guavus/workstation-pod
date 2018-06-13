@@ -1,6 +1,11 @@
 pipeline {
     agent any
 
+    environment {
+      // To be moved up to Slave config
+      PATH = "/usr/local/bin:$PATH"
+    }
+
     stages {
 
         stage('Clone repository') {
@@ -12,7 +17,7 @@ pipeline {
         stage('Set Pipeline Variables') {
           steps {
             script {
-              env.BUILD_TYPE == buildType( BRANCH_NAME )
+              env.BUILD_TYPE == buildType( env.BRANCH_NAME )
             }
           }
         }
