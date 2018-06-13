@@ -4,16 +4,16 @@ pipeline {
     stages {
 
         stage('Clone repository') {
-            steps{
+            steps {
                 checkout scm
             }
         }
 
         stage('Set Pipeline Variables') {
           steps {
-            script {
-              def buildType = buildType( BRANCH_NAME ) 
-            }
+
+            println( buildType( BRANCH_NAME ) )
+
           }
         }
 
