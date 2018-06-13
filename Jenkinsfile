@@ -21,6 +21,7 @@ pipeline {
             script {
               BUILD_TYPE = buildType( env.BRANCH_NAME )
               BRANCH_NAME = env.BRANCH_NAME
+              GIT_TAG_NAME = gitTagName( env.GIT_COMMIT )
             }
           }
         }
