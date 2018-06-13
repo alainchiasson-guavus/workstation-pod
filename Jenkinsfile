@@ -18,8 +18,8 @@ pipeline {
         stage('Set Pipeline Variables') {
           steps {
             script {
-              BUILD_TYPE == buildType( env.BRANCH_NAME )
-              BRANCH_NAME == BRANCH_NAME
+              def BUILD_TYPE == buildType( env.BRANCH_NAME )
+              def BRANCH_NAME == BRANCH_NAME
             }
           }
         }
