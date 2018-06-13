@@ -5,6 +5,7 @@ pipeline {
       // To be moved up to Slave config
       PATH = "/usr/local/bin:$PATH"
       BUILD_TYPE = ""
+      BRANCH_NAME = ""
     }
 
     stages {
