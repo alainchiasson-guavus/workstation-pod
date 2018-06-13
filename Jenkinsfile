@@ -12,7 +12,7 @@ pipeline {
         stage('Set Pipeline Variables') {
           steps {
             script {
-              def buildType = buildType( ${BRANCH_NAME} ) 
+              def buildType = buildType( BRANCH_NAME ) 
             }
           }
         }
