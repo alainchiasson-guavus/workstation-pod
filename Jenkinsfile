@@ -9,6 +9,14 @@ pipeline {
             }
         }
 
+        stage('Set Pipeline Variables') {
+          steps {
+            script {
+              def buildType = buildType( ${BRANCH_NAME} ) 
+            }
+          }
+        }
+
         // stage('Set variables'){
         //   steps {    // Can only do this after a the SCM has been pulled.
         //     script {
