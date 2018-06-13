@@ -12,7 +12,7 @@ pipeline {
         stage('Set Pipeline Variables') {
           steps {
 
-            println( buildType( BRANCH_NAME ) )
+            env.BUILD_TYPE == buildType( BRANCH_NAME )
 
           }
         }
@@ -56,6 +56,7 @@ pipeline {
         stage('Print information'){
           steps {
             println("BRANCH_NAME : ${BRANCH_NAME}")
+            println("BUILD_TYPE : ${BUILD_TYPE}")
             // println("GIT_TAG_NAME : ${GIT_TAG_NAME}")
             // println("DockerTag : ${dockerTag}")
             // input("Branch ${env.BRANCH_NAME} -> ${buildType} : ${dockerTag} - OK to continue?")
