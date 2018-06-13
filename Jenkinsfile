@@ -11,9 +11,9 @@ pipeline {
 
         stage('Set Pipeline Variables') {
           steps {
-
-            env.BUILD_TYPE == buildType( BRANCH_NAME )
-
+            script {
+              env.BUILD_TYPE == buildType( BRANCH_NAME )
+            }
           }
         }
 
