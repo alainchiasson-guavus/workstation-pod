@@ -4,12 +4,12 @@ pipeline {
         stage('Example') {
             steps {
                 echo 'Building Docker image'
-                ./build
+              
             }
         }
     }
-    post { 
-        always { 
+    post {
+        always {
             echo 'Now What'
         }
     }
