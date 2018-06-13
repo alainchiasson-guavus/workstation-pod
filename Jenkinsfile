@@ -5,7 +5,7 @@ pipeline {
       // To be moved up to Slave config
       PATH = "/usr/local/bin:$PATH"
       BUILD_TYPE = ""
-      BRANCH_NAME = ""
+      BRANCH_NAME = env.BRANCH_NAME
     }
 
     stages {
@@ -19,7 +19,7 @@ pipeline {
         stage('Set Pipeline Variables') {
           steps {
             script {
-              BUILD_TYPE = buildType( env.BRANCH_NAME )
+              BUILD_TYPE = buildType( BRANCH_NAME )
               BRANCH_NAME = env.BRANCH_NAME
               GIT_TAG_NAME = gitTagName( env.GIT_COMMIT )
             }
@@ -66,7 +66,7 @@ pipeline {
           steps {
             println("BRANCH_NAME : ${BRANCH_NAME}")
             println("BUILD_TYPE : ${BUILD_TYPE}")
-            // println("GIT_TAG_NAME : ${GIT_TAG_NAME}")
+            println("GIT_TAG_NAME : ${GIT_TAG_NAME}")
             // println("DockerTag : ${dockerTag}")
             // input("Branch ${env.BRANCH_NAME} -> ${buildType} : ${dockerTag} - OK to continue?")
           }
